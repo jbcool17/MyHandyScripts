@@ -1,4 +1,4 @@
---with-faac
+--with-faac 
 --with-fdk-aac
 --with-ffplay
 --with-fontconfig
