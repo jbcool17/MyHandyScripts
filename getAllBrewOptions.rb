@@ -31,7 +31,7 @@ end
 file.close
 
 #removes specific options
-options_array.slice!(0, 2)
+#options_array.slice!(0, 2)
 
 options = options_array.join(' ')
 
