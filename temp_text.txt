@@ -1,0 +1,5 @@
+--with-freetype
+--with-libogg
+--with-libvorbis
+--with-libvpx
+--with-theora
