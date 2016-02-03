@@ -9,25 +9,33 @@ alias ls='ls -lah'
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-
 #ALIAS
+alias buo='brew update && brew outdated'
+alias bug='brew upgrade'
 alias pserve='python -m SimpleHTTPServer'
+
+#sass --watch styles.scss:style.css
+#create vagrant commands
+
+#GIT
+alias gs='git status'
 alias gpom='git push origin master'
 alias gadd='git add .'
 alias gcom='git commit -m'
 alias gh-pages='git checkout -b gh-pages && git push origin gh-pages && git checkout master && git branch -d gh-pages'
-#nginx
-
 
 #sublime
 export EDITOR='subl -w'
 
-#The .NET SDK Manager, a set of command 
-#line utilities to update and configure 
+#The .NET SDK Manager, a set of command
+#line utilities to update and configure
 #which runtime (DNX) to use.
 source /usr/local/lib/dnx/bin/dnvm.sh
 
 #RASPPI
 #Find Raspberry Pi - sudo nmap -O -v 192.168.1.1/24 | grep Pi
-alias find_rasp='sudo nmap -O -v 192.168.1.1/24 | grep Pi'
-#open vnc://pi@192.168.1.xxx:5901
+alias rp_find='sudo nmap -O -v xxx.xxx.x.x/xx | grep Pi'
+alias rp_vnc='open vnc://pi@xxx.xxx.x.xxx:xxxx'
+alias rp_ssh='ssh pi@xxx.xxx.x.xxx'
+
+
