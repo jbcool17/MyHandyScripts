@@ -10,7 +10,9 @@ brew install ext4fuse
 
 - Use `df` to get disk name, should be under the Filesystem Category:
 
-```/dev/disk2s2```
+```
+/dev/disk2s2
+```
 
 ### MOUNT EXT4 readonly on MAC
 
