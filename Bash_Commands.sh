@@ -5,17 +5,25 @@ echo "Hello `whoami`, How are you feeling today?"
 #export PS1="\$ "
 #export CLICOLOR=1
 #export LSCOLORS=ExFxBxDxCxegedabagacad
+
+# ----
+#ALIAS
+# ----
+alias pserve='python -m SimpleHTTPServer'
 alias ls='ls -lah'
 
+#RUBY # Using RBENV
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+alias pry="pry --simple-prompt"
 
-#ALIAS
+#HOME BREW
 alias buo='brew update && brew outdated'
 alias bug='brew upgrade'
-alias pserve='python -m SimpleHTTPServer'
 
 #sass --watch styles.scss:style.css
-#create vagrant commands
+
+#VAGRANT
+  #create vagrant commands
 
 #GIT
 alias gs='git status'
