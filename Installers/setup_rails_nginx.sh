@@ -13,28 +13,36 @@ python-software-properties libffi-dev ruby-dev
 	#image magick
 apt-get install -y libmagickwand-dev imagemagick libmagickcore-dev
 
-# RUBY SETUP
+#===========================================
+#===========================================
+#===========================================
+# RUBY SETUP -- NOTE SEPERATE THIS - ^*(*&^%^&*&^%$) - rvm seperate install
 	# rvm
-apt-get install -y libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
-gpg --keyserver hkp://keys.gnupg.net --homedir /root/.gnupg --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+# apt-get install -y libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
+# gpg --keyserver hkp://keys.gnupg.net --homedir /root/.gnupg --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 
-curl -L https://get.rvm.io | bash -s stable
-#echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
-echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
-source ~/.bashrc
+# curl -L https://get.rvm.io | bash -s stable
+# echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
+# echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
+# source ~/.bashrc
 
-	# install ruby version
-rvm install ruby-1.9.3p448
-# Download - wget https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.bz2
+# echo "INSTALLING RUBY"
+# 	# install ruby version
+# rvm install ruby-1.9.3p448
+# # Download - wget https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.bz2
 
-	# Set default
-rvm use ruby-1.9.3-p448 --default
-ruby -v
+# 	# Set default
+# rvm use ruby-1.9.3-p448 --default
+# ruby -v
 
-	# No docuemtation
-echo "gem: --no-ri --no-rdoc" > ~/.gemrc
-	# Install bundler
-gem install bundler --no-ri --no-rdoc
+# 	# No docuemtation
+# echo "gem: --no-ri --no-rdoc" > ~/.gemrc
+# 	# Install bundler
+# gem install bundler --no-ri --no-rdoc
+
+#===========================================
+#===========================================
+#===========================================
 
 #MONGO - http://docs.mongodb.org/v2.6/tutorial/install-mongodb-on-ubuntu/ | https://docs.mongodb.org/v3.0/tutorial/install-mongodb-on-ubuntu/
 	#Mongo
