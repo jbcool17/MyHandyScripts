@@ -5,6 +5,7 @@ echo "Hello `whoami`, How are you feeling today?"
 #export PS1="\$ "
 #export CLICOLOR=1
 #export LSCOLORS=ExFxBxDxCxegedabagacad
+# chmod +x file.sh
 
 # ----
 #ALIAS
