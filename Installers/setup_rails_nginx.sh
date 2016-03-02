@@ -20,7 +20,8 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 
 curl -L https://get.rvm.io | bash -s stable
 #echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
-source /home/vagrant/.rvm/scripts/rvm
+echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
+source ~/.bashrc
 
 	# install ruby version
 rvm install ruby-1.9.3p448
