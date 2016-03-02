@@ -16,7 +16,7 @@ apt-get install -y libmagickwand-dev imagemagick libmagickcore-dev
 # RUBY SETUP
 	# rvm
 apt-get install -y libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 --homedir /root/.gnupg
 
 curl -L https://get.rvm.io | bash -s stable
 #echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
