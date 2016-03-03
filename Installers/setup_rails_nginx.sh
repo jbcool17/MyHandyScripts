@@ -10,7 +10,7 @@ libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 \
 libxml2-dev libxslt-dev libcurl4-openssl-dev \
 python-software-properties libffi-dev ruby-dev
 
-	#image magick
+	#image magick - look up correct im setup
 apt-get install -y libmagickwand-dev imagemagick libmagickcore-dev
 
 #===========================================
@@ -22,7 +22,7 @@ apt-get install -y libmagickwand-dev imagemagick libmagickcore-dev
 # gpg --keyserver hkp://keys.gnupg.net --homedir /root/.gnupg --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 
 # curl -L https://get.rvm.io | bash -s stable
-# echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
+# echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc - this worked too
 # echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
 # source ~/.bashrc
 
@@ -44,25 +44,28 @@ apt-get install -y libmagickwand-dev imagemagick libmagickcore-dev
 #===========================================
 #===========================================
 
-#MONGO - http://docs.mongodb.org/v2.6/tutorial/install-mongodb-on-ubuntu/ | https://docs.mongodb.org/v3.0/tutorial/install-mongodb-on-ubuntu/
-	#Mongo
-echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-apt-get update
-apt-get install -y mongodb-org
-	#Mongo 2.6.9
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+# MONGO - http://docs.mongodb.org/v2.6/tutorial/install-mongodb-on-ubuntu/ | https://docs.mongodb.org/v3.0/tutorial/install-mongodb-on-ubuntu/
+	# Mongo
+		#echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+		#apt-get update
+		#apt-get install -y mongodb-org
+	# Mongo 2.6.9 --->
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 # might need sudo
 echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
 apt-get update
 apt-get install -y mongodb-org=2.6.9 mongodb-org-server=2.6.9 mongodb-org-shell=2.6.9 mongodb-org-mongos=2.6.9 mongodb-org-tools=2.6.9
 
-#prevent upgrade
+	# prevent upgrade
 echo "mongodb-org hold" | sudo dpkg --set-selections
 echo "mongodb-org-server hold" | sudo dpkg --set-selections
 echo "mongodb-org-shell hold" | sudo dpkg --set-selections
 echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
 echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 
-# Starts Mongo
+	# create and restore database
+# mongo > use db_name
+
+	# Starts Mongo
 service mongod start
 
 #NGINX
@@ -74,27 +77,32 @@ gpg --armor --export 561F9B9CAC40B2F7 | sudo apt-key add -
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
 apt-get install -y apt-transport-https ca-certificates
 
+#sudo
 sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main > /etc/apt/sources.list.d/passenger.list'
 apt-get update
 
 	# Install Passenger & Nginx
 apt-get install -y nginx-extras passenger
 
-#TEST NGINX
-#mkdir sites && cd sites && mkdir test && cd test
-#echo "HELLO WORLD" >> index.html
+# TEST NGINX
+	#mkdir sites && cd sites && mkdir test && cd test
+	#echo "HELLO WORLD" >> index.html
 
-#vim /etc/hosts
-#echo '127.0.0.1 test.local' >> hosts
-#cp -pvr default test.local
-#vim test.local
-# root, server name, remove defaults
-#ln -s /etc/nginx/sites-available/test.local /etc/nginx/sites-enabled/
+	#vim /etc/hosts
+	#echo '127.0.0.1 test.local' >> hosts
+	#cp -pvr default test.local
+	#vim test.local
+	# root, server name, remove defaults
+	#Symlink
+	#ln -s /etc/nginx/sites-available/test.local /etc/nginx/sites-enabled/
+	#sudo service nginx restart
 
-#sudo service nginx restart
+	#create ssh key: add pub key source to destination auth keys
 
-#create ssh key: add pub key source to destination auth keys
-
-#NODE for js support
+# NODE for js support
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 apt-get install -y nodejs
+
+echo "----"
+echo "DONE"
+echo "----"
