@@ -18,7 +18,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 alias pry="pry --simple-prompt"
 
 #HOME BREW
-alias buo='brew update && brew outdated'
+alias buo='brew update && echo "Ready for Update:" &&  brew outdated'
 alias bug='brew upgrade'
 
 #sass --watch styles.scss:style.css
