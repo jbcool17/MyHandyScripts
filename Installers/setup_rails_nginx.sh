@@ -28,7 +28,7 @@ apt-get install -y libmagickwand-dev imagemagick libmagickcore-dev
 
 # echo "INSTALLING RUBY"
 # 	# install ruby version
-# rvm install ruby-1.9.3p448
+# rvm install ruby-1.9.3-p448
 # # Download - wget https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.bz2
 
 # 	# Set default
@@ -47,7 +47,7 @@ apt-get install -y libmagickwand-dev imagemagick libmagickcore-dev
 #MONGO - http://docs.mongodb.org/v2.6/tutorial/install-mongodb-on-ubuntu/ | https://docs.mongodb.org/v3.0/tutorial/install-mongodb-on-ubuntu/
 	#Mongo
 echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-sudo apt-get update
+apt-get update
 apt-get install -y mongodb-org
 	#Mongo 2.6.9
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
