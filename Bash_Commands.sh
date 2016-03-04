@@ -1,38 +1,37 @@
-#GREETING
+# GREETING
 echo "Hello `whoami`, How are you feeling today?"
 
-#TERMINAL STYLES
+# TERMINAL STYLES
 #export PS1="\$ "
 #export CLICOLOR=1
 #export LSCOLORS=ExFxBxDxCxegedabagacad
+
+# Utility
+alias ls='ls -lah'
+alias pserve='python -m SimpleHTTPServer'
 # chmod +x file.sh
 
-# ----
-#ALIAS
-# ----
-alias pserve='python -m SimpleHTTPServer'
-alias ls='ls -lah'
 
-#RUBY # Using RBENV
+# RUBY - rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 alias pry="pry --simple-prompt"
 
-#HOME BREW
+# HOMEBREW
 alias buo='brew update && echo "Ready for Update:" &&  brew outdated'
 alias bug='brew upgrade'
 
-#sass --watch styles.scss:style.css
-
-#VAGRANT
-  #create vagrant commands
-
 #GIT
+alias ghostscript='/usr/local/bin/gs' #fix
 alias gs='git status'
-alias gpom='git push origin master'
+alias gpom='git push -u origin master'
 alias gadd='git add .'
 alias gcom='git commit -m'
 alias gh-pages='git checkout -b gh-pages && git push origin gh-pages && git checkout master && git branch -d gh-pages'
 
+# SASS
+#sass --watch styles.scss:style.css
+
+# VAGRANT
 #sublime
 export EDITOR='subl -w'
 
