@@ -13,12 +13,13 @@ python-software-properties libffi-dev ruby-dev
 	#image magick - look up correct im setup
 apt-get install -y libmagickwand-dev imagemagick libmagickcore-dev
 
+apt-get install -y libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
 #===========================================
 #===========================================
 #===========================================
 # RUBY SETUP -- NOTE SEPERATE THIS - ^*(*&^%^&*&^%$) - rvm seperate install
 	# rvm
-# apt-get install -y libgdbm-dev libncurses5-dev automake libtool bison libffi-dev
+
 # gpg --keyserver hkp://keys.gnupg.net --homedir /root/.gnupg --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 
 # curl -L https://get.rvm.io | bash -s stable
