@@ -11,7 +11,10 @@ alias ls='ls -lah'
 alias pserve='python -m SimpleHTTPServer'
 # chmod +x file.sh
 
-
+# NGINX
+alias ng_error='sudo less /var/log/nginx/error.log'
+alias ng_access='sudo less /var/log/nginx/access.log'
+	
 # RUBY - rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 alias pry="pry --simple-prompt"
