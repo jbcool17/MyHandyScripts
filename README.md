@@ -5,11 +5,15 @@
 ```
 sudo gem install colorize
 ```
+
 #### Shell Profile Alias
 - Bash_Commands.sh
 
+#### Shell Scripts
+- import multiple SQL backups
+
 #### Installers
-- not ready
+- Nginx/Rails Server w/Mongo
 
 ## More to Come
 - loop through dir and process files shell/ruby
