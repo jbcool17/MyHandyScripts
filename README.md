@@ -1,10 +1,9 @@
 ## Some Shell/Ruby/Python Scripts
 
 ####RUBY
-- ruby scripts might be using colorize gem
-```
-sudo gem install colorize
-```
+- csv
+- homebrew
+- installer script
 
 #### Shell Profile Alias
 - Bash_Commands.sh
