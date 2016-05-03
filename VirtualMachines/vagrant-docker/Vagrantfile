@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.hostname = "rails-docker"
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  # config.vm.network "private_network", ip: "192.168.33.10"
+  # config.vm.network "public_network"
+
+  # Must use nfs for this otherwise rails performance is slow
+  config.vm.synced_folder ".", "/app", type: "nfs"
+
+  config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine    
+    # vb.gui = true
+    vb.memory = "1024"
+  end
+
+  config.vm.provision "docker"
+  
+  #config.vm.provision "shell", inline: $setup
+
+  #config.vm.provision "shell", run: "always", inline: $start
+end
+
