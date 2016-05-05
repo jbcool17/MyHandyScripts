@@ -5,8 +5,9 @@
 - homebrew
 - installer script
 
-#### Shell Profile Alias
+#### Settings
 - Bash_Commands.sh
+- vim/terminator/tmux configs
 
 #### Shell Scripts
 - import multiple SQL backups
@@ -14,6 +15,10 @@
 #### Installers
 - Nginx/Rails Server w/Mongo
 
-## More to Come
+#### Virtual Machines
+- vagrant-docker start - work in progress
+- need to upload current setups
+
+## Notes
 - loop through dir and process files shell/ruby
 - Watch folder and Upload to Google Drive
