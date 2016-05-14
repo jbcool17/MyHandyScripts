@@ -1,0 +1,114 @@
+NGINX SETTINGS
+
+# ------------------------------------------------
+# Force https: / ssl - site config file
+	if ($scheme = http) {        
+		rewrite ^(.*)$ https://$server_name$1 permanent;
+	}
+
+# ------------------------------------------------
+# Include the perl module - For case insensitive
+	perl_modules perl/lib;
+
+	# Define this function
+	perl_set $uri_lowercase 'sub {
+	        my $r = shift;
+	        my $uri = $r->uri;
+	        $uri = lc($uri);
+	        return $uri;
+	}';
+
+	# Goes in server config
+
+	location ~ [A-Z] {  	
+	rewrite ^(.*)$ $scheme://$host$uri_lowercase permanent;
+	}
+
+
+# ------------------------------------------------
+# Logging Settings
+
+	access_log /var/log/nginx/access.log;
+	error_log /var/log/nginx/error.log;
+
+# ------------------------------------------------
+# Phusion Passenger configs
+
+	#passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
+	#passenger_ruby /usr/bin/passenger_free_ruby;
+	passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;
+	passenger_ruby /home/vagrant/.rvm/wrappers/ruby-1.9.3-p448/ruby;
+	#passenger_ruby /home/vagrant/.rvm/wrappers/ruby-2.1.8/ruby; 
+
+
+# ------------------------------------------------
+# Default server configuration
+#
+	server {
+	        listen 80;
+	        listen [::]:80;
+	        listen 443 ssl;
+
+	        server_name localhost;
+	        passenger_enabled on;
+	        rails_env staging;
+	        root /home/vagrant/SITE_NAME/current/public;
+
+	        ssl_certificate /etc/nginx/ssl/nginx.crt;
+	        ssl_certificate_key /etc/nginx/ssl/nginx.key;
+	        #ssl on;
+
+	        # Add index.php to the list if you are using PHP
+	        index index.html index.htm index.nginx-debian.html;
+	        
+	        location ~ ^/(assets)/  {
+	                root /home/vagrant/SITE_NAME/current/public;
+	                gzip_static on; # to serve pre-gzipped version
+	                expires max;
+	                add_header Cache-Control public;
+	        }
+
+	        # force https / ssl
+	        if ($scheme = http) {
+	                rewrite ^(.*)$ https://$server_name$1 permanent;
+	        }
+	        #proxy_set_header X-Forwarded-Proto $scheme;
+	}
+
+# ------------------------------------------------
+# Vagrant Testing Box
+	server {
+	        listen 80;
+	        listen [::]:80;
+	        listen 443 ssl;
+
+	        server_name localhost;
+	        passenger_enabled on;
+	        rails_env staging;
+	        root /home/vagrant/sites/SITE_NAME/current/public;
+
+	        ssl_certificate /etc/nginx/ssl/nginx.crt;
+	        ssl_certificate_key /etc/nginx/ssl/nginx.key;
+	        ssl on;
+
+	        # Add index.php to the list if you are using PHP
+	        index index.html index.htm index.nginx-debian.html;
+
+	#       location ~ ^/(assets)/  {
+	#               root /home/vagrant/sites/SITE_NAME/current/public;
+	#               gzip_static on; # to serve pre-gzipped version
+	#               expires max;
+	#               add_header Cache-Control public;
+	#       }
+
+	        # force https / ssl
+	        if ($scheme = http) {
+	                rewrite ^(.*)$ https://$server_name$1 permanent;
+	        }
+	#       proxy_set_header X-Forwarded-Proto $scheme;      
+	#       location / {
+	#               try_files $uri $uri/ =404;
+	#       }
+
+
+	}
