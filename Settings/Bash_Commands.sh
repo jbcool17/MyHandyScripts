@@ -49,4 +49,8 @@ alias rp_find='sudo nmap -O -v xxx.xxx.x.x/xx | grep Pi'
 alias rp_vnc='open vnc://pi@xxx.xxx.x.xxx:xxxx'
 alias rp_ssh='ssh pi@xxx.xxx.x.xxx'
 
+# Utilities
+# youtube-dl --extract-audio --audio-format mp3 --prefer-ffmpeg url
+
+
 
