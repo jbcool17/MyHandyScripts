@@ -1,6 +1,16 @@
 # MONGODB NOTES
 
 ##Getting Started
+```
+# mongo console
+mongo <dbname>
+```
+### Select/Show DB
+```javascript
+> use <dbname>
+> show dbs
+```
+
 ###Drop DB
 ```javascript
 mongo <dbname> --eval "db.dropDatabase()"
@@ -9,39 +19,37 @@ mongo <dbname> --eval "db.dropDatabase()"
 ```javascript
 mongo <dbname> script.js
 ```
-### Select/Show DB
-```javascript
-> use <dbname>
-> show dbs
-```
+
 ###Load Backup
 ```javascript
-mongorestore --db <DESTINATION> <LOCATION OF FILES JSON>
+mongorestore --db <DESTINATION> <LOCATION OF DUMP>
 mongorestore --db jobadvisor_test jobadvisor_production/
 ```
 
 ##Queries
 ```javascript
 $ mongo
-> db.getCollection('companies').find({short_name: "Clearswift"})
+> db.getCollection('guitar').find({type: "Electric"})
 ```
 
-### Get industry with name
+### Get industry with name or id
 ```javascript
-> db.getCollection('industries').find({name: "Automotive"})
+> db.seals.find()
+> db.getCollection('animals').find({name: "Wolf"})
+> db.getCollection('birds').find({some_id: ObjectId("####") });
 ```
 
 ### Get Count - How many companies in industry
 ```javascript
-> db.getCollection('companies').find({industry_ids: ObjectId("539d4e7f7e74914cf4000002")});
+> db.profiles.find({company_ids: ObjectId("###")}).toArray().count();
 ```
 
-### Set toArray() to hold data in variable
+### Set toArray() to hold data in variable, otherwise it disappears on the next line
 ```javascript
 var allProfiles = db.profiles.find({company_ids: ID }).toArray();
 ```
 
-### Find all Profiles with company ids, more the 0 in array
+### Find all Profiles with company ids array, more then 0
 ```javascript
 db.profiles.find({company_ids: { $exists: true, $not: {$size: 0} }});
 ```
@@ -54,18 +62,20 @@ allProfiles.forEach(function(){ return //CODE });
 
 ### Get all that have specific field
 ```javascript
-> db.profiles.find({company_ids: { $exists: true }});
+> db.posts.find({comments: { $exists: true }});
 ```
 
 ### Get all that doesn’t have specific field
 ```javascript
-> db.profiles.find({company_ids: { $exists: false }});
+> db.posts.find({comments: { $exists: false }});
 ```
 
-### Check if field exists - Is ‘first_name’ in profile?
+### Check if field exists - Is ‘first_name’ in profile? - similar to above
 ```javascript
+> var allProfiles = db.profiles.find({company_ids: { $exists: true, $not: {$size: 0} }}).toArray()
 > allProfiles.forEach(function(profile){
-var first_name = "first_name" in profile ? profile.first_name : "Unknown";
+	var first_name = "first_name" in profile ? profile.first_name : "Unknown";
+	// edit me
 });
 ```
 
