@@ -23,7 +23,7 @@ mongo <dbname> script.js
 ###Load Backup
 ```javascript
 mongorestore --db <DESTINATION> <LOCATION OF DUMP>
-mongorestore --db jobadvisor_test jobadvisor_production/
+mongorestore --db db_development db_production/
 ```
 
 ##Queries
