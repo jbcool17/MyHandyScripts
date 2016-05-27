@@ -86,3 +86,22 @@ final_output.forEach(function(record){
 	print([record.email, record.name, record.comment);
 });
 ```
+
+### Updates
+```javascript
+// Find animals type and change to new type
+db.animals.find({type_id: ObjectId("###")}).forEach(function(x) { 
+	x.type_id = ObjectId("###")
+	db.animals.save(x)
+})
+
+// Rename Type Name
+db.animals.update(
+	{id: ObjectId(“###”)}, 
+	{
+		$set: {“name”: ObjectId(“###”)}, 
+		$currentDate: {“lastModified”: true}
+	}
+)
+```
+
