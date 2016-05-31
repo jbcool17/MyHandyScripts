@@ -198,24 +198,6 @@
     cursor_color = "#d0d0d0"
     foreground_color = "#c5c8c6"
     palette = "#000000:#fd5ff1:#87c38a:#ffd7b1:#85befd:#b9b6fc:#85befd:#e0e0e0:#000000:#fd5ff1:#94fa36:#f5ffa8:#96cbfe:#b9b6fc:#85befd:#e0e0e0"
-  [[blue/white]]
-    allow_bold = False
-    background_color = "#002566"
-    background_image = None
-    foreground_color = "#fffcfc"
-    palette = "#000000:#cd0000:#00cd00:#cdcd00:#ffbb34:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#f88c00:#ff00ff:#00ffff:#ffffff"
-  [[lightgreen]]
-    background_color = "#d0ffcc"
-    background_image = None
-    foreground_color = "#0079e3"
-    palette = "#2e3436:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fcc34f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
-  [[red]]
-    background_color = "#a02215"
-    background_image = None
-    font = Ubuntu Mono Bold 10
-    foreground_color = "#ffffff"
-    palette = "#2e3436:#ffa902:#6acf0a:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#efc729:#a8e234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
-    use_system_font = False
   [[solarized-dark]]
     background_color = "#002b36"
     background_image = None
