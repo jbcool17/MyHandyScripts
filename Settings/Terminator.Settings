@@ -1,6 +1,10 @@
 [global_config]
+  handle_size = 1
   inactive_color_offset = 1.0
+  scroll_tabbar = True
   sticky = True
+  title_inactive_bg_color = "#4b4b4b"
+  title_transmit_bg_color = "#00bd46"
 [keybindings]
 [layouts]
   [[default]]
