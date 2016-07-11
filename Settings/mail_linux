@@ -1,0 +1,3 @@
+# This for Command Line Mailing
+
+echo "This is a test" | mail -s "testing `date`" email@gmail.com
