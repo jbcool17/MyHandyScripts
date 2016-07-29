@@ -3,7 +3,7 @@
 ##Getting Started
 ```
 # mongo console
-mongo <dbname>
+$ mongo <dbname>
 ```
 ### Select/Show DB
 ```javascript
@@ -12,24 +12,28 @@ mongo <dbname>
 ```
 
 ###Drop DB
-```javascript
-mongo <dbname> --eval "db.dropDatabase()"
+```shell
+$ mongo <dbname> --eval "db.dropDatabase()"
 ```
 ### Run Script
-```javascript
-mongo <dbname> script.js
+```shell
+$ mongo <dbname> script.js
 ```
 
 ###Load Backup
-```javascript
-mongorestore --db <DESTINATION> <LOCATION OF DUMP>
-mongorestore --db db_development db_production/
+```shell
+$ mongorestore --db <DESTINATION> <LOCATION OF DUMP>
+$ mongorestore --db db_development db_production/
 ```
 
 ##Queries
 ```javascript
 $ mongo
-> db.getCollection('guitar').find({type: "Electric"})
+> db.getCollection('guitars').find({type: "Electric"})
+// Get Where external_id exists
+> db.getCollection('guitars').find({external_id: { $exists: true }})
+// Get Where array has size of 3
+> db.getCollection('guitars').find({external_id: { $size: 3 }})
 ```
 
 ### Get industry with name or id
@@ -46,18 +50,18 @@ $ mongo
 
 ### Set toArray() to hold data in variable, otherwise it disappears on the next line
 ```javascript
-var allProfiles = db.profiles.find({company_ids: ID }).toArray();
+> var allProfiles = db.profiles.find({company_ids: ID }).toArray();
 ```
 
 ### Find all Profiles with company ids array, more then 0
 ```javascript
-db.profiles.find({company_ids: { $exists: true, $not: {$size: 0} }});
+> db.profiles.find({company_ids: { $exists: true, $not: {$size: 0} }});
 ```
 
 ### Cycle through query
 ```javascript
-var allProfiles = db.profiles.find({company_ids: { $exists: true, $not: {$size: 0} }}).toArray()
-allProfiles.forEach(function(){ return //CODE });
+> var allProfiles = db.profiles.find({company_ids: { $exists: true, $not: {$size: 0} }}).toArray()
+> allProfiles.forEach(function(){ return //CODE });
 ```
 
 ### Get all that have specific field
@@ -90,13 +94,13 @@ final_output.forEach(function(record){
 ### Updates
 ```javascript
 // Find animals type and change to new type
-db.animals.find({type_id: ObjectId("###")}).forEach(function(x) { 
+> db.animals.find({type_id: ObjectId("###")}).forEach(function(x) { 
 	x.type_id = ObjectId("###")
 	db.animals.save(x)
 })
 
 // Rename Type Name
-db.animals.update(
+> db.animals.update(
 	{id: ObjectId(“###”)}, 
 	{
 		$set: {“name”: ObjectId(“###”)}, 
