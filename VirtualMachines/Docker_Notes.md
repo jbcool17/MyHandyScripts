@@ -23,7 +23,7 @@ docker run --name mongo-test -d mongo
 docker exec -it mongo-test  /bin/bash
 ```
 
-### Setup Admin
+### Setup Mongo Admin
 ```shell
 $ mongo admin
 > db.createUser({ user: “johnUser”, pwd: “test1234”, roles: [ { role: "userAdminAnyDatabase", db: "admin" } ] });
