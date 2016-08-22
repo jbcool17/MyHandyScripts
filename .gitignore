@@ -3,5 +3,7 @@
 WIP/WatchAndUpload/client_secret.json
 npm-debug.log
 
-Ruby/sample.csv
 
+*.dat
+*.gz
+*.csv
