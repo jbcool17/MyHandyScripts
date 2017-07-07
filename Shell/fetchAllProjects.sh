@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 # Get Projects Info & Fetch Latest
-# USAGE: sh script.sh FOLDER_PATH
+# USAGE: sh script.sh <folder_path>
 # chmod +x
+
+folder_path=$1
+
+if [ -z "$folder_path ]
+then
+	echo "please provide a folder path"
+	echo "script <folder_path>
+	exit
+fi
 
 for folder in $1/* ; do 
 	
