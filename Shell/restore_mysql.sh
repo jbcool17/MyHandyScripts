@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Import multple SQL files
 # Place in folder and run.
-# USAGE: sh script.sh user pass dbname
+# USAGE: ./script.sh user pass dbname
 # chmod +x
 echo 'Restoring Database...'
 username=$1
