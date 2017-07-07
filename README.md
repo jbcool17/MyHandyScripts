@@ -9,8 +9,8 @@
 - Bash_Commands.sh
 - vim/terminator/tmux configs
 
-#### Shell Scripts
-- import multiple SQL backups
+#### Bash Scripts
+- assorted script
 
 #### Installers
 - Nginx/Rails Server w/Mongo
@@ -19,8 +19,6 @@
 - vagrant-docker start - work in progress
 - need to upload current setups
 
-#### DataBases
-- mongo commands - need proof read
 
 ## Notes
 - loop through dir and process files shell/ruby
