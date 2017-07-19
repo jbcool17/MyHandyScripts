@@ -1,4 +1,4 @@
-# Using [Google Drive API](https://developers.google.com/)`
+# Using [Google Drive API](https://developers.google.com/)
 - I'm using .env file to serve secret keys and vars
 - sheets.rb
 - [Google Sheets API](https://developers.google.com/sheets/api/quickstart/ruby)
