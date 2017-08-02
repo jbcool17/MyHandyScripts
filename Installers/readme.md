@@ -1,1 +1,2 @@
-## Installing Things
+# Installing Things
+- Rails Nginx
