@@ -22,7 +22,4 @@ $ CREATE DATABASE <NAME>;
 
 # change db owner
 $ ALTER DATABASE test OWNER TO deploy;
-
-# Restore to Docker Container
-cat dump.sql | docker exec -i main-postgres pg_restore -U postgres
 ```

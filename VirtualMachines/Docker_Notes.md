@@ -46,3 +46,17 @@ docker run -it --rm --link mongo-test:mongo -v ~/MongoDump/:/tmp mongo bash -c '
 ```shell
 docker inspect <container_hash>
 ```
+
+
+
+docker exec -it some-mongo mongo admin
+docker exec -it some-mongo mongo -u admin -p password --authenticationDatabase admin
+db.createUser({user: "admin",pwd: "password",roles: [ { role: "root", db: "admin" } ]});
+db.addUser( { user: "john",pwd: "test",roles: [ "userAdminAnyDatabase","dbAdminAnyDatabase","readWriteAnyDatabase"] } )
+docker exec -it some-mongo /bin/bash
+$ mongo --port 27017 -u admin -p password --authenticationDatabase admin
+
+
+for (var i = 1; i <= 250; i++) {
+   db.dogs.insert( { x : i } )
+}
